@@ -199,7 +199,7 @@ VkPhysicalDevice pickPhysicalDevice(VkPhysicalDevice* physicalDevices, uint32_t 
 		VkPhysicalDeviceProperties props;
 		vkGetPhysicalDeviceProperties(physicalDevices[i], &props);
 
-		if (props.deviceType == VK_PHYSICAL_DEVICE_TYPE_CPU)
+		if (props.deviceType == VK_PHYSICAL_DEVICE_TYPE_CPU && fallback != VK_NULL_HANDLE)
 			continue;
 
 		printf("GPU%d: %s (Vulkan 1.%d)\n", i, props.deviceName, VK_VERSION_MINOR(props.apiVersion));
